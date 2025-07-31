@@ -80,7 +80,7 @@ def generate_tag(message, key, tag_length=128):
 # ========== Command Line Interface ==========
 def main():
     if len(sys.argv) < 4:
-        print("Usage: python cantor_cipher.py <encrypt|decrypt> <message_or_bits> <key>")
+        print("Usage: python cantor_cipher.py <encrypt/decrypt> <"message/bits"> <"key">")
         return
 
     action = sys.argv[1]
@@ -90,14 +90,14 @@ def main():
     if action == "encrypt":
         encrypted = cantor_encrypt(data, key)
         tag = generate_tag(data, key)
-        print("\n🔐 Encrypted Message:")
+        print("\n * Encrypted Message:")
         print(encrypted)
-        print("\n🔑 Key (bits):", str_to_bits(key))
-        print("\n🏷️ Tag:", tag)
+        print("\n * Key (bits):", str_to_bits(key))
+        print("\n * Tag:", tag)
 
     elif action == "decrypt":
         decrypted = cantor_decrypt(data, key)
-        print("\n🔓 Decrypted Message:")
+        print("\n * Decrypted Message:")
         print(decrypted)
 
     else:
